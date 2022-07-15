@@ -1,0 +1,20 @@
+{
+    "name": "two",
+    "tooltype": "python",
+    "includes": [
+        "two.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "execute_in_work": true,
+    "includes_main_path": "../..",
+    "execution_settings": {
+        "env": "",
+        "kernel_spec_name": "amiris",
+        "use_jupyter_console": false,
+        "executable": ""
+    }
+}

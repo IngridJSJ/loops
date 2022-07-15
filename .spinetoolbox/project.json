@@ -1,0 +1,163 @@
+{
+    "project": {
+        "version": 7,
+        "name": "loops",
+        "description": "",
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/one.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/twow.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/three.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/four.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/five.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from Tool 1 to two",
+                "from": [
+                    "Tool 1",
+                    "right"
+                ],
+                "to": [
+                    "two",
+                    "left"
+                ]
+            },
+            {
+                "name": "from two to three",
+                "from": [
+                    "two",
+                    "right"
+                ],
+                "to": [
+                    "three",
+                    "left"
+                ]
+            },
+            {
+                "name": "from three to four",
+                "from": [
+                    "three",
+                    "right"
+                ],
+                "to": [
+                    "four",
+                    "left"
+                ]
+            },
+            {
+                "name": "from four to five",
+                "from": [
+                    "four",
+                    "bottom"
+                ],
+                "to": [
+                    "five",
+                    "bottom"
+                ]
+            }
+        ],
+        "jumps": [
+            {
+                "name": "from five to Tool 1",
+                "from": [
+                    "five",
+                    "right"
+                ],
+                "to": [
+                    "Tool 1",
+                    "bottom"
+                ],
+                "condition": {
+                    "type": "python-script",
+                    "script": "import sys\ncounter = int(sys.argv[1])  # Loop counter is supplied as first command line argument\nexit(0 if counter < 2 else 1)"
+                },
+                "cmd_line_args": []
+            },
+            {
+                "name": "from four to two",
+                "from": [
+                    "four",
+                    "right"
+                ],
+                "to": [
+                    "two",
+                    "bottom"
+                ],
+                "condition": {
+                    "type": "python-script",
+                    "script": "import os\nimport sys\n\ncontinue_file = os.path.join(os.getcwd(),\"emlabpy\",  \"continue.txt\")\nprint(\"current\",os.getcwd(), \"file\" , continue_file)\n\nf = open(continue_file, \"r\")\ncontinue_str = f.read()\nexit(1 if continue_str == \"False\" else 0) # Exit code 0 = continue,"
+                },
+                "cmd_line_args": []
+            }
+        ]
+    },
+    "items": {
+        "Tool 1": {
+            "type": "Tool",
+            "description": "",
+            "x": -1205.83211756925,
+            "y": -677.4675050575786,
+            "specification": "one",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        },
+        "two": {
+            "type": "Tool",
+            "description": "",
+            "x": -1090.7527038593216,
+            "y": -684.4723389355743,
+            "specification": "twow",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        },
+        "three": {
+            "type": "Tool",
+            "description": "",
+            "x": -933.6442868814192,
+            "y": -691.4771728135701,
+            "specification": "three",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        },
+        "four": {
+            "type": "Tool",
+            "description": "",
+            "x": -826.5516004381249,
+            "y": -506.34942032368497,
+            "specification": "four",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        },
+        "five": {
+            "type": "Tool",
+            "description": "",
+            "x": -1302.89910130719,
+            "y": -494.3411336756923,
+            "specification": "five",
+            "execute_in_work": false,
+            "cmd_line_args": []
+        }
+    }
+}
